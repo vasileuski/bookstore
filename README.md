@@ -1,6 +1,6 @@
 # Getting Started with My Final Project in TeachMeSkills
 
-# BookStore
+# BookStore 📚📚📚
 
 ## Available Scripts
 
