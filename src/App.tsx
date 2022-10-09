@@ -1,5 +1,14 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter } from "react-router-dom";
+import { RouterRoot } from "./router";
 
 export function App() {
-  return <div className="App">App</div>;
+  return (
+    <>
+      <BrowserRouter>
+        <RouterRoot />
+      </BrowserRouter>
+    </>
+  );
 }
