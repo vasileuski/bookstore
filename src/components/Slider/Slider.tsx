@@ -10,7 +10,7 @@ export const Slider = () => {
       <Carousel.Item style={{ height: "600px" }}>
         <img src={books_1} className="d-block w-100" alt="Books" />
         <Carousel.Caption>
-          <h3>Take the books in your life</h3>
+          <h2>Take the books in your life</h2>
           <p>Check our wide selection of books</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -18,7 +18,7 @@ export const Slider = () => {
       <Carousel.Item style={{ height: "600px" }}>
         <img src={books_2} className="d-block w-100" alt="Books" />
         <Carousel.Caption>
-          <h3>Enjoy every page</h3>
+          <h2>Enjoy every page</h2>
           <p>Be careful of our NEW arrivals</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -26,7 +26,7 @@ export const Slider = () => {
       <Carousel.Item style={{ height: "600px" }}>
         <img src={books_3} className="d-block w-100" alt="Books" />
         <Carousel.Caption>
-          <h3>Find a new friend</h3>
+          <h2>Find a new friend</h2>
           <p>Don't forget about your cart</p>
         </Carousel.Caption>
       </Carousel.Item>
