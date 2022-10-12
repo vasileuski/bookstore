@@ -15,7 +15,7 @@ export const Styles = styled.div`
     cursor: pointer;
   }
 
-  .navbar-collapse {
-    justify-content: end;
+  .navbar > .container {
+    align-items: start;
   }
 `;

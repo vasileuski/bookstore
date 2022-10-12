@@ -16,7 +16,6 @@ export const BooksList = ({ url }: Props) => {
       .then((response) => response.json())
       .then((data) => setCards(data.books));
   }
-  console.log(cards);
 
   useEffect(() => {
     fetchCards();

@@ -13,31 +13,33 @@ import { Styles } from "./styles";
 export const NaviBar = () => {
   return (
     <Styles>
-      <Navbar bg="light" className="d-flex">
+      <Navbar collapseOnSelect expand="md" bg="light">
         <Container>
-          <NavbarBrand className="mr-auto">📚 Bookstore</NavbarBrand>
+          <NavbarBrand>📚 Bookstore</NavbarBrand>
 
-          <Nav as="ul">
-            <Nav.Link as="li">
-              <Link to="/">Main</Link>
-            </Nav.Link>
-            <NavDropdown title="Go Shopping" menuVariant="light">
-              <NavDropdown.Item>
-                <Link to="/newreleases">NEW Releases</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link to="/programming">Programming</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link to="/cookingbooks">Cooking</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link to="/mathbooks">Mathematics</Link>
-              </NavDropdown.Item>
-            </NavDropdown>
-
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav as="ul">
+              <Nav.Link as="li">
+                <Link to="/">Main</Link>
+              </Nav.Link>
+              <NavDropdown title="Go Shopping" menuVariant="light">
+                <NavDropdown.Item>
+                  <Link to="/newreleases">NEW Releases</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to="/programming">Programming</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to="/cookingbooks">Cooking</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to="/mathbooks">Mathematics</Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
             <Button variant="primary">Login</Button>
-          </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     </Styles>
