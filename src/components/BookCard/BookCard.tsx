@@ -14,9 +14,10 @@ export const BookCard = ({ card }: BookCardProps) => {
         <Card.Img variant="top" src={card.image} />
         <Card.Body>
           <Card.Title>{card.title}</Card.Title>
-          <Card.Text>{card.subtitle}</Card.Text>
-          <Button variant="link">Details...</Button>
-          <Button variant="warning">{card.price}</Button>
+          <div className="card-buttons">
+            <Button variant="link">Details...</Button>
+            <Button variant="warning">{card.price}</Button>
+          </div>
         </Card.Body>
       </Card>
     </Styles>

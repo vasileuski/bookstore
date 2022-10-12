@@ -25,15 +25,18 @@ export const NaviBar = () => {
               <NavDropdown.Item>
                 <Link to="/newreleases">NEW Releases</Link>
               </NavDropdown.Item>
-              <NavDropdown.Item>Programming</NavDropdown.Item>
-              <NavDropdown.Item>Cooking</NavDropdown.Item>
-              <NavDropdown.Item>Mathematics</NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link to="/programming">Programming</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link to="/cookingbooks">Cooking</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link to="/mathbooks">Mathematics</Link>
+              </NavDropdown.Item>
             </NavDropdown>
 
-            <Button variant="primary">
-              Login
-              {/* <img src={login} alt="login" /> */}
-            </Button>
+            <Button variant="primary">Login</Button>
           </Nav>
         </Container>
       </Navbar>
