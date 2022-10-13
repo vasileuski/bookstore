@@ -15,7 +15,11 @@ export const NaviBar = () => {
     <Styles>
       <Navbar collapseOnSelect expand="md" bg="light">
         <Container>
-          <NavbarBrand>📚 Bookstore</NavbarBrand>
+          <NavbarBrand>
+            <Link to="/" style={{ color: "#212529" }}>
+              📚 Bookstore
+            </Link>
+          </NavbarBrand>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">

@@ -5,4 +5,5 @@ export interface IBookCard {
   price: string;
   image: string;
   url: string;
+  link?: string;
 }

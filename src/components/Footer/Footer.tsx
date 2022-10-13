@@ -9,7 +9,9 @@ export const Footer = () => {
       <Navbar bg="light" className="d-flex">
         <Container>
           <Nav className="flex-column">
-            <Nav.Link>Main</Nav.Link>
+            <Nav.Link>
+              <Link to="/">Main</Link>
+            </Nav.Link>
             <Nav.Link>Login</Nav.Link>
             <Nav.Link>Registration</Nav.Link>
           </Nav>
@@ -30,8 +32,8 @@ export const Footer = () => {
           </Nav>
 
           <Nav>
-            <p>
-              This site developed<br></br> by A.Vasileuski
+            <p className="nav-notation">
+              This site is developed<br></br> by A.Vasileuski
             </p>
           </Nav>
         </Container>

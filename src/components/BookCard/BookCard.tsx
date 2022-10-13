@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import { IBookCard } from "../../models";
 import { Styles } from "./styles";
 
@@ -15,7 +16,9 @@ export const BookCard = ({ card }: BookCardProps) => {
         <Card.Body>
           <Card.Title>{card.title}</Card.Title>
           <div className="card-buttons">
-            <Button variant="link">Details...</Button>
+            <Button variant="link">
+              <NavLink to={"/selectedbook/" + card.isbn13}>Details...</NavLink>
+            </Button>
             <Button variant="warning">{card.price}</Button>
           </div>
         </Card.Body>

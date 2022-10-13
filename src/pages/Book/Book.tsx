@@ -1,15 +1,16 @@
 import React from "react";
-import { BooksList } from "../../components/BooksList/BooksList";
 import { Footer } from "../../components/Footer/Footer";
-
 import { NaviBar } from "../../components/NaviBar/NaviBar";
+import { SelectedBook } from "../../components/SelectedBook/SelectedBook";
 
-export const NewReleases = () => {
+export const Book = () => {
+  console.log("YO");
+
   return (
     <>
       <NaviBar />
-      <BooksList url="https://api.itbook.store/1.0/new" />
-      <Footer />
+      <SelectedBook></SelectedBook>
+      <Footer></Footer>
     </>
   );
 };
