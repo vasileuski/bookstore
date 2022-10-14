@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Styles } from "./styles";
+import { Container, Spinner } from "react-bootstrap";
 import { useInput } from "../../hooks/useInput";
 import { IBookCard } from "../../models";
 import { BookCard } from "../BookCard/BookCard";
 import { Input } from "../Input/Input";
-import { Styles } from "./styles";
 
 interface IProps {
   url: string;
@@ -14,11 +13,15 @@ interface IProps {
 export const BooksList = ({ url }: IProps) => {
   const [cards, setCards] = useState<IBookCard[]>([]);
   const inputText = useInput();
+  const [isLoading, setIsLoading] = useState(true);
 
   function fetchCards() {
     fetch(url)
       .then((response) => response.json())
-      .then((data) => setCards(data.books));
+      .then((data) => setCards(data.books))
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
 
   useEffect(() => {
@@ -34,12 +37,24 @@ export const BooksList = ({ url }: IProps) => {
   return (
     <Styles>
       <Container>
-        <Input {...inputText} />
-        <ul className="card-list">
-          {filteredBooks.map((item) => (
-            <BookCard card={item} key={item.isbn13} />
-          ))}
-        </ul>
+        {isLoading ? (
+          <div className="spinner-cover d-flex" style={{ height: "100vh" }}>
+            <Spinner
+              className="d-flex m-auto align-items-center"
+              animation="grow"
+              variant="primary"
+            />
+          </div>
+        ) : (
+          <>
+            <Input {...inputText} />
+            <ul className="card-list">
+              {filteredBooks.map((item) => (
+                <BookCard card={item} key={item.isbn13} />
+              ))}
+            </ul>
+          </>
+        )}
       </Container>
     </Styles>
   );

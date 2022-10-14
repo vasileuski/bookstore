@@ -1,4 +1,5 @@
 import React from "react";
+import { Styles } from "./styles";
 import {
   Button,
   Container,
@@ -8,7 +9,7 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Styles } from "./styles";
+import { BoxArrowInRight } from "react-bootstrap-icons";
 
 export const NaviBar = () => {
   return (
@@ -42,7 +43,10 @@ export const NaviBar = () => {
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Button variant="primary">Login</Button>
+            <Button variant="primary">
+              Login
+              <BoxArrowInRight className="login-icon" />
+            </Button>
           </Navbar.Collapse>
         </Container>
       </Navbar>

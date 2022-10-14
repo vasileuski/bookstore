@@ -1,8 +1,8 @@
 import React from "react";
+import { Styles } from "./styles";
 import { Card, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { IBookCard } from "../../models";
-import { Styles } from "./styles";
 
 interface BookCardProps {
   card: IBookCard;
@@ -12,7 +12,10 @@ export const BookCard = ({ card }: BookCardProps) => {
   return (
     <Styles>
       <Card style={{ width: "18rem" }} key={card.isbn13} as="li">
-        <Card.Img variant="top" src={card.image} />
+        <div className="cover-card-img-top">
+          <Card.Img variant="top" src={card.image} />
+        </div>
+
         <Card.Body>
           <Card.Title>{card.title}</Card.Title>
           <div className="card-buttons">

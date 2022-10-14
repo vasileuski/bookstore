@@ -1,7 +1,6 @@
 import React, { ChangeEventHandler } from "react";
-import { Button, InputGroup, Form, Container } from "react-bootstrap";
-import { useInput } from "../../hooks/useInput";
 import { Styles } from "./styles";
+import { InputGroup, Form, Container } from "react-bootstrap";
 
 interface Input {
   value: string;

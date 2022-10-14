@@ -1,7 +1,7 @@
 import React from "react";
+import { Styles } from "../Footer/styles";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Styles } from "../Footer/styles";
 
 export const Footer = () => {
   return (
