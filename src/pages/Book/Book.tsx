@@ -1,14 +1,16 @@
 import React from "react";
 import { Footer } from "../../components/Footer/Footer";
 import { NaviBar } from "../../components/NaviBar/NaviBar";
-import { Slider } from "../../components/Slider/Slider";
+import { SelectedBook } from "../../components/SelectedBook/SelectedBook";
 
-export const Main = () => {
+export const Book = () => {
+  console.log("YO");
+
   return (
     <>
       <NaviBar />
-      <Slider />
-      <Footer />
+      <SelectedBook></SelectedBook>
+      <Footer></Footer>
     </>
   );
 };

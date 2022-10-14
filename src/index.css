@@ -1,3 +1,5 @@
-/* a {
-  text-decoration: none;
-} */
+@import-normalize;
+
+ul {
+  list-style-type: none;
+}

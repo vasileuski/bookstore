@@ -1,13 +1,14 @@
 import React from "react";
+import { BooksList } from "../../components/BooksList/BooksList";
 import { Footer } from "../../components/Footer/Footer";
-import { NaviBar } from "../../components/NaviBar/NaviBar";
-import { Slider } from "../../components/Slider/Slider";
 
-export const Main = () => {
+import { NaviBar } from "../../components/NaviBar/NaviBar";
+
+export const NewReleases = () => {
   return (
     <>
       <NaviBar />
-      <Slider />
+      <BooksList url="https://api.itbook.store/1.0/new" />
       <Footer />
     </>
   );

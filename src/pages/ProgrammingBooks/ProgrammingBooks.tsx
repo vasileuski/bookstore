@@ -1,12 +1,14 @@
 import React from "react";
 import { BooksList } from "../../components/BooksList/BooksList";
+import { Footer } from "../../components/Footer/Footer";
 import { NaviBar } from "../../components/NaviBar/NaviBar";
 
-export const Catalog = () => {
+export const ProgrammingBooks = () => {
   return (
     <>
       <NaviBar />
-      <BooksList />
+      <BooksList url="https://api.itbook.store/1.0/search/programming" />
+      <Footer />
     </>
   );
 };
