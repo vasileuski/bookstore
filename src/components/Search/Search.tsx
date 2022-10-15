@@ -2,14 +2,14 @@ import React, { ChangeEventHandler } from "react";
 import { Styles } from "./styles";
 import { InputGroup, Form, Container } from "react-bootstrap";
 
-interface Input {
+interface ISearch {
   value: string;
   placeholder?: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
   className?: string;
 }
 
-export const Input = (props: Input) => {
+export const Search = (props: ISearch) => {
   return (
     <Styles>
       <Container>

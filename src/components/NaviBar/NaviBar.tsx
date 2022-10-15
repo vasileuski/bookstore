@@ -43,10 +43,12 @@ export const NaviBar = () => {
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Button variant="primary">
-              Login
-              <BoxArrowInRight className="login-icon" />
-            </Button>
+            <Link to="/login" style={{ color: "white" }}>
+              <Button variant="primary">
+                Login
+                <BoxArrowInRight className="login-icon" />
+              </Button>
+            </Link>
           </Navbar.Collapse>
         </Container>
       </Navbar>

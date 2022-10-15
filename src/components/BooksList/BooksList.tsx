@@ -4,7 +4,7 @@ import { Container, Spinner } from "react-bootstrap";
 import { useInput } from "../../hooks/useInput";
 import { IBookCard } from "../../models";
 import { BookCard } from "../BookCard/BookCard";
-import { Input } from "../Input/Input";
+import { Search } from "../Search/Search";
 
 interface IProps {
   url: string;
@@ -47,7 +47,7 @@ export const BooksList = ({ url }: IProps) => {
           </div>
         ) : (
           <>
-            <Input {...inputText} />
+            <Search {...inputText} />
             <ul className="card-list">
               {filteredBooks.map((item) => (
                 <BookCard card={item} key={item.isbn13} />
