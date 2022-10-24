@@ -18,4 +18,9 @@ export const Styles = styled.div`
   .navbar-collapse {
     justify-content: end;
   }
+
+  .login-icon {
+    height: 1.5em;
+    width: 1.5em;
+  }
 `;

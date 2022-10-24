@@ -1,7 +1,7 @@
 import React from "react";
+import { Styles } from "../Footer/styles";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Styles } from "../Footer/styles";
 
 export const Footer = () => {
   return (
@@ -9,24 +9,24 @@ export const Footer = () => {
       <Navbar bg="light" className="d-flex">
         <Container>
           <Nav className="flex-column">
-            <Nav.Link>
+            <Nav.Link as="li">
               <Link to="/">Main</Link>
             </Nav.Link>
-            <Nav.Link>Login</Nav.Link>
-            <Nav.Link>Registration</Nav.Link>
+            <Nav.Link as="li">Login</Nav.Link>
+            <Nav.Link as="li">Registration</Nav.Link>
           </Nav>
 
           <Nav defaultActiveKey="/home" className="flex-column">
-            <Nav.Link>
+            <Nav.Link as="li">
               <Link to="/newreleases">NEW Releases</Link>
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link as="li">
               <Link to="/programming">Programming</Link>
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link as="li">
               <Link to="/cookingbooks">Cooking</Link>
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link as="li">
               <Link to="/mathbooks">Mathematics</Link>
             </Nav.Link>
           </Nav>

@@ -6,6 +6,8 @@ import { CookingBooks } from "../pages/CookingBooks/CookingBooks";
 import { MathBooks } from "../pages/MathBooks/MathBooks";
 import { Book } from "../pages/Book/Book";
 import React from "react";
+import { Login } from "../pages/Login/Login";
+import { Registration } from "../pages/Registration/Registration";
 
 export const RouterRoot = () => {
   return (
@@ -18,6 +20,8 @@ export const RouterRoot = () => {
       />
       <Route path="/cookingbooks" element={<CookingBooks></CookingBooks>} />
       <Route path="/mathbooks" element={<MathBooks />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/registration" element={<Registration />} />
       <Route path="/selectedbook/:id" element={<Book />} />
     </Routes>
   );
