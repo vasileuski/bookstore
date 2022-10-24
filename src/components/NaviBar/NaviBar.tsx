@@ -25,9 +25,9 @@ export const NaviBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav as="ul">
-              <Nav.Link as="li">
+              <Nav as="li">
                 <Link to="/">Main</Link>
-              </Nav.Link>
+              </Nav>
               <NavDropdown title="Go Shopping" menuVariant="light">
                 <NavDropdown.Item>
                   <Link to="/newreleases">NEW Releases</Link>
