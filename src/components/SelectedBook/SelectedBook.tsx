@@ -59,7 +59,10 @@ export const SelectedBook = () => {
               <p className="selected-book_subtitle">{card?.subtitle}</p>
               <h2 className="selected-book_price">{card?.price}</h2>
               <Button variant="warning" className="selected-book_btn-cart">
-                Add to cart
+                Add to cart{" "}
+                <span className="selected-book_btn-cart-price">
+                  {card?.price}
+                </span>
               </Button>
             </div>
           </Container>
