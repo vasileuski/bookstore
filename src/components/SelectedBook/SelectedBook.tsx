@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Styles } from "./styles";
 import { Button, Container, Spinner } from "react-bootstrap";
-import { IBookCard } from "../../models";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft } from "react-bootstrap-icons";
+
+import { Styles } from "./styles";
+import { IBookCard } from "../../models";
 
 export const SelectedBook = () => {
   const params = useParams();

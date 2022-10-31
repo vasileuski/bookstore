@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Styles } from "./styles";
 import { Container, Spinner } from "react-bootstrap";
+
+import { Styles } from "./styles";
 import { useInput } from "../../hooks/useInput";
 import { IBookCard } from "../../models";
-import { BookCard } from "../BookCard/BookCard";
+import { BookCardModel } from "../BookCardModel/BookCardModel";
 import { Search } from "../Search/Search";
 
 interface IProps {
@@ -50,7 +51,7 @@ export const BooksList = ({ url }: IProps) => {
             <Search {...inputText} />
             <ul className="card-list">
               {filteredBooks.map((item) => (
-                <BookCard card={item} key={item.isbn13} />
+                <BookCardModel card={item} key={item.isbn13} />
               ))}
             </ul>
           </>

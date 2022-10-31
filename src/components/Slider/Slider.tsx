@@ -1,6 +1,7 @@
 import React from "react";
-import { Styles } from "./styles";
 import { Carousel } from "react-bootstrap";
+
+import { Styles } from "./styles";
 import books_1 from "../../images/books_1.jpg";
 import books_2 from "../../images/books_2.jpg";
 import books_3 from "../../images/books_3.jpg";

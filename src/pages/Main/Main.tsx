@@ -1,14 +1,14 @@
 import React from "react";
-import { Footer } from "../../components/Footer/Footer";
-import { NaviBar } from "../../components/NaviBar/NaviBar";
+import { BasicLayout } from "../../components/BasicLayout/BasicLayout";
+import { MainSearch } from "../../components/MainSearch/MainSearch";
 import { Slider } from "../../components/Slider/Slider";
+import { useInput } from "../../hooks/useInput";
 
 export const Main = () => {
   return (
-    <>
-      <NaviBar />
+    <BasicLayout>
       <Slider />
-      <Footer />
-    </>
+      <MainSearch />
+    </BasicLayout>
   );
 };

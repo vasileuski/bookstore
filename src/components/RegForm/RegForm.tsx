@@ -2,6 +2,7 @@ import React from "react";
 import { ButtonGroup, Button, InputGroup, Form } from "react-bootstrap";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
+
 import { Styles } from "../RegForm/styles";
 
 type SignUpFormValues = {

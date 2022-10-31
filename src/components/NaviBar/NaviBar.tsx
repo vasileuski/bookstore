@@ -1,5 +1,4 @@
 import React from "react";
-import { Styles } from "./styles";
 import {
   Button,
   Container,
@@ -10,6 +9,8 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { BoxArrowInRight } from "react-bootstrap-icons";
+
+import { Styles } from "./styles";
 
 export const NaviBar = () => {
   return (

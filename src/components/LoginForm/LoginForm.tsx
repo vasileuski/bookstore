@@ -1,8 +1,9 @@
 import React from "react";
-import { Styles } from "./styles";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
+
+import { Styles } from "./styles";
 
 type SignUpFormValues = {
   email: string;

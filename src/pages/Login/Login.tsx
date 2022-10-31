@@ -1,14 +1,11 @@
 import React from "react";
-import { Footer } from "../../components/Footer/Footer";
+import { BasicLayout } from "../../components/BasicLayout/BasicLayout";
 import { LoginForm } from "../../components/LoginForm/LoginForm";
-import { NaviBar } from "../../components/NaviBar/NaviBar";
 
 export const Login = () => {
   return (
-    <>
-      <NaviBar />
+    <BasicLayout>
       <LoginForm />
-      <Footer />
-    </>
+    </BasicLayout>
   );
 };
