@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Container, Spinner } from "react-bootstrap";
+import { useDebounce } from "../../hooks/useDebounce";
 import { useInput } from "../../hooks/useInput";
-import { IBookCard } from "../../models";
-import { BookCardModel } from "../BookCardModel/BookCardModel";
+import { BookModel } from "../../models";
+import { BookCard } from "../BookCard/BookCard";
 import { BooksList } from "../BooksList/BooksList";
 import { Styles } from "../MainSearch/styles";
 import { Search } from "../Search/Search";
 
 export const MainSearch = () => {
-  const [cards, setCards] = useState<IBookCard[]>([]);
+  const [cards, setCards] = useState<BookModel[]>([]);
   const inputText = useInput();
+  const debouncedValue = useDebounce(inputText.value);
 
   function fetchCards() {
-    console.log(inputText);
-
     fetch(`https://api.itbook.store/1.0/search/${inputText.value}`)
       .then((response) => response.json())
       .then((data) => {
@@ -26,24 +26,17 @@ export const MainSearch = () => {
       });
   }
 
-  // const filteredBooks = cards.filter(
-  //   (item) =>
-  //     item.title.toLowerCase().includes(inputText.value.toLowerCase()) ||
-  //     item.subtitle.toLowerCase().includes(inputText.value.toLowerCase())
-  // );
-
   useEffect(() => {
     fetchCards();
-  }, [inputText.value]);
+  }, [debouncedValue]);
 
   return (
     <Styles>
       <Container>
         <Search {...inputText} />
-        {}
         <ul className="card-list">
           {cards.map((item) => (
-            <BookCardModel card={item} key={item.isbn13} />
+            <BookCard card={item} key={item.isbn13} />
           ))}
         </ul>
       </Container>

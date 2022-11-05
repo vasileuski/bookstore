@@ -1,4 +1,4 @@
-export interface IBookCard {
+export interface BookModel {
   title: string;
   subtitle: string;
   isbn13: number;

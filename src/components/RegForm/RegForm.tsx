@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 import { Styles } from "../RegForm/styles";
+const url = "https://studapi.teachmeskills.by/auth/users/";
 
 type SignUpFormValues = {
   email: string;
@@ -18,17 +19,28 @@ export const RegForm = () => {
     formState: { errors },
   } = useForm<SignUpFormValues>();
 
-  const onSubmit: SubmitHandler<SignUpFormValues> = (data) => {
-    const newUser = {
-      ...data,
-      id: Date.now(),
+  const onSubmit: SubmitHandler<SignUpFormValues> = ({ email, password }) => {
+    // fetch(url, {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     username: email,
+    //     email,
+    //     password,
+    //   }),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data));
+    const user = {
+      email,
+      password,
     };
-    console.log(newUser);
+    console.log(user);
 
     reset();
   };
-
-  console.log(errors.password);
 
   return (
     <Styles>
@@ -64,8 +76,8 @@ export const RegForm = () => {
             {...register("password", {
               required: "Password is required",
               minLength: {
-                value: 8,
-                message: "Password must be at least 8 characters",
+                value: 3,
+                message: "Password must be at least 3 characters",
               },
             })}
           />
@@ -73,7 +85,7 @@ export const RegForm = () => {
         {errors.password && (
           <span className="text-danger">{errors.password.message}</span>
         )}
-        <label>
+        {/* <label>
           Repeat password:
           <input
             type="password"
@@ -86,10 +98,10 @@ export const RegForm = () => {
               },
             })}
           />
-        </label>
-        {errors.password && (
+        </label> */}
+        {/* {errors.password && (
           <span className="text-danger">{errors.password.message}</span>
-        )}
+        )} */}
         <Button type="submit" variant="primary">
           Sign In
         </Button>

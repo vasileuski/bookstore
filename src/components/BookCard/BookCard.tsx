@@ -3,13 +3,13 @@ import { Card, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 import { Styles } from "./styles";
-import { IBookCard } from "../../models";
+import { BookModel } from "../../models";
 
 interface Props {
-  card: IBookCard;
+  card: BookModel;
 }
 
-export const BookCardModel = ({ card }: Props) => (
+export const BookCard = ({ card }: Props) => (
   <Styles>
     <Card style={{ width: "18rem" }} key={card.isbn13} as="li">
       <div className="cover-card-img-top">

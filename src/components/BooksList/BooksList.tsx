@@ -3,8 +3,8 @@ import { Container, Spinner } from "react-bootstrap";
 
 import { Styles } from "./styles";
 import { useInput } from "../../hooks/useInput";
-import { IBookCard } from "../../models";
-import { BookCardModel } from "../BookCardModel/BookCardModel";
+import { BookModel } from "../../models";
+import { BookCard } from "../BookCard/BookCard";
 import { Search } from "../Search/Search";
 
 interface IProps {
@@ -12,12 +12,12 @@ interface IProps {
 }
 
 export const BooksList = ({ url }: IProps) => {
-  const [cards, setCards] = useState<IBookCard[]>([]);
+  const [cards, setCards] = useState<BookModel[]>([]);
   const inputText = useInput();
   const [isLoading, setIsLoading] = useState(true);
 
   function fetchCards() {
-    fetch(url)
+    fetch(url, { method: "GET" })
       .then((response) => response.json())
       .then((data) => setCards(data.books))
       .finally(() => {
@@ -51,7 +51,7 @@ export const BooksList = ({ url }: IProps) => {
             <Search {...inputText} />
             <ul className="card-list">
               {filteredBooks.map((item) => (
-                <BookCardModel card={item} key={item.isbn13} />
+                <BookCard card={item} key={item.isbn13} />
               ))}
             </ul>
           </>

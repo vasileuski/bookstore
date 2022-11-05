@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft } from "react-bootstrap-icons";
 
 import { Styles } from "./styles";
-import { IBookCard } from "../../models";
+import { BookModel } from "../../models";
 
 export const SelectedBook = () => {
   const params = useParams();
@@ -12,7 +12,7 @@ export const SelectedBook = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {}, []);
-  const [card, setCard] = useState<IBookCard>();
+  const [card, setCard] = useState<BookModel>();
 
   function fetchCards() {
     fetch(`https://api.itbook.store/1.0/books/${params.id}`)
