@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Spinner } from "react-bootstrap";
 import { useDebounce } from "../../hooks/useDebounce";
 import { useInput } from "../../hooks/useInput";
-import { BookModel } from "../../models";
+import { BookModel } from "../../types/types";
 import { BookCard } from "../BookCard/BookCard";
 import { BooksList } from "../BooksList/BooksList";
 import { Styles } from "../MainSearch/styles";

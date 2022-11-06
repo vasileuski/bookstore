@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft } from "react-bootstrap-icons";
 
 import { Styles } from "./styles";
-import { BookModel } from "../../models";
+import { BookModel } from "../../types/types";
 
 export const SelectedBook = () => {
   const params = useParams();

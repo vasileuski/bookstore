@@ -1,17 +1,31 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, nanoid } from "@reduxjs/toolkit";
 
-const initialState = {
+interface UserState {
+  id: null | string;
+  isAuth: false;
+  name: null;
+  email: null;
+  password: null;
+}
+
+const initialState: UserState = {
+  id: null,
+  isAuth: false,
   name: null,
   email: null,
   password: null,
-  id: null,
-  isAuth: false,
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    generateRandomId(state) {
+      state.id = nanoid();
+    },
+  },
 });
 
 export default userSlice.reducer;
+
+export const { generateRandomId } = userSlice.actions;

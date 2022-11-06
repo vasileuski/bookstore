@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 import { Styles } from "./styles";
-import { BookModel } from "../../models";
+import { BookModel } from "../../types/types";
 
 interface Props {
   card: BookModel;

@@ -13,7 +13,7 @@ export const Slider = () => {
         <Carousel.Item>
           <img src={books_1} className="d-block w-100" alt="Books" />
           <Carousel.Caption>
-            <h2>Take the books in your life</h2>
+            <h2>Take books in your life</h2>
             <p>Check our wide selection of books</p>
           </Carousel.Caption>
         </Carousel.Item>
