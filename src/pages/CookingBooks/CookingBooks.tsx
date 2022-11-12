@@ -1,14 +1,11 @@
 import React from "react";
+import { BasicLayout } from "../../components/BasicLayout/BasicLayout";
 import { BooksList } from "../../components/BooksList/BooksList";
-import { Footer } from "../../components/Footer/Footer";
-import { NaviBar } from "../../components/NaviBar/NaviBar";
 
 export const CookingBooks = () => {
   return (
-    <>
-      <NaviBar />
+    <BasicLayout>
       <BooksList url="https://api.itbook.store/1.0/search/cooking" />
-      <Footer />
-    </>
+    </BasicLayout>
   );
 };

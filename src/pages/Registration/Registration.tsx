@@ -1,14 +1,11 @@
 import React from "react";
-import { Footer } from "../../components/Footer/Footer";
-import { NaviBar } from "../../components/NaviBar/NaviBar";
+import { BasicLayout } from "../../components/BasicLayout/BasicLayout";
 import { RegForm } from "../../components/RegForm/RegForm";
 
 export const Registration = () => {
   return (
-    <>
-      <NaviBar />
+    <BasicLayout>
       <RegForm />
-      <Footer />
-    </>
+    </BasicLayout>
   );
 };

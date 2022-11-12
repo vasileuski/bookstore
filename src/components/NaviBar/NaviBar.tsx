@@ -1,5 +1,4 @@
 import React from "react";
-import { Styles } from "./styles";
 import {
   Button,
   Container,
@@ -10,6 +9,8 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { BoxArrowInRight } from "react-bootstrap-icons";
+
+import { Styles } from "./styles";
 
 export const NaviBar = () => {
   return (
@@ -25,9 +26,9 @@ export const NaviBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav as="ul">
-              <Nav as="li">
+              <Nav.Link as="li">
                 <Link to="/">Main</Link>
-              </Nav>
+              </Nav.Link>
               <NavDropdown title="Go Shopping" menuVariant="light">
                 <NavDropdown.Item>
                   <Link to="/newreleases">NEW Releases</Link>

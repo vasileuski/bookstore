@@ -1,8 +1,9 @@
 import React from "react";
-import { Styles } from "./styles";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
+
+import { Styles } from "./styles";
 
 type SignUpFormValues = {
   email: string;
@@ -22,7 +23,6 @@ export const LoginForm = () => {
       ...data,
       id: Date.now(),
     };
-    console.log(newUser);
 
     reset();
   };
@@ -60,7 +60,7 @@ export const LoginForm = () => {
             {...register("password", {
               required: "Password is required",
               minLength: {
-                value: 8,
+                value: 6,
                 message: "Password must be at least 8 characters",
               },
             })}

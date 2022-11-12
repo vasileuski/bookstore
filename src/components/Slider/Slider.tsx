@@ -1,6 +1,7 @@
 import React from "react";
-import { Styles } from "./styles";
 import { Carousel } from "react-bootstrap";
+
+import { Styles } from "./styles";
 import books_1 from "../../images/books_1.jpg";
 import books_2 from "../../images/books_2.jpg";
 import books_3 from "../../images/books_3.jpg";
@@ -12,7 +13,7 @@ export const Slider = () => {
         <Carousel.Item>
           <img src={books_1} className="d-block w-100" alt="Books" />
           <Carousel.Caption>
-            <h2>Take the books in your life</h2>
+            <h2>Take books in your life</h2>
             <p>Check our wide selection of books</p>
           </Carousel.Caption>
         </Carousel.Item>

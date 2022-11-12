@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Styles } from "./styles";
 import { Button, Container, Spinner } from "react-bootstrap";
-import { IBookCard } from "../../models";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft } from "react-bootstrap-icons";
+
+import { Styles } from "./styles";
+import { BookModel } from "../../types/types";
 
 export const SelectedBook = () => {
   const params = useParams();
@@ -11,7 +12,7 @@ export const SelectedBook = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {}, []);
-  const [card, setCard] = useState<IBookCard>();
+  const [card, setCard] = useState<BookModel>();
 
   function fetchCards() {
     fetch(`https://api.itbook.store/1.0/books/${params.id}`)
@@ -59,7 +60,10 @@ export const SelectedBook = () => {
               <p className="selected-book_subtitle">{card?.subtitle}</p>
               <h2 className="selected-book_price">{card?.price}</h2>
               <Button variant="warning" className="selected-book_btn-cart">
-                Add to cart
+                Add to cart{" "}
+                <span className="selected-book_btn-cart-price">
+                  {card?.price}
+                </span>
               </Button>
             </div>
           </Container>
