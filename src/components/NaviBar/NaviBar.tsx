@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Container,
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavDropdown,
-} from "react-bootstrap";
+import { Button, Container, Nav, Navbar, NavbarBrand, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { BoxArrowInRight } from "react-bootstrap-icons";
 
@@ -30,16 +23,16 @@ export const NaviBar = () => {
                 <Link to="/">Main</Link>
               </Nav.Link>
               <NavDropdown title="Go Shopping" menuVariant="light">
-                <NavDropdown.Item>
+                <NavDropdown.Item as="li">
                   <Link to="/newreleases">NEW Releases</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item>
+                <NavDropdown.Item as="li">
                   <Link to="/programming">Programming</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item>
+                <NavDropdown.Item as="li">
                   <Link to="/cookingbooks">Cooking</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item>
+                <NavDropdown.Item as="li">
                   <Link to="/mathbooks">Mathematics</Link>
                 </NavDropdown.Item>
               </NavDropdown>

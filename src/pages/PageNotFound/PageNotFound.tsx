@@ -1,11 +1,11 @@
 import React from "react";
 import { BasicLayout } from "../../components/BasicLayout/BasicLayout";
-import { BooksList } from "../../components/BooksList/BooksList";
+import { Page404 } from "../../components/Page404/Page404";
 
-export const NewReleases = () => {
+export const PageNotFound = () => {
   return (
     <BasicLayout>
-      <BooksList />
+      <Page404 />
     </BasicLayout>
   );
 };

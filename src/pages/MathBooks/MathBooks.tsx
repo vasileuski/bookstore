@@ -5,7 +5,7 @@ import { BooksList } from "../../components/BooksList/BooksList";
 export const MathBooks = () => {
   return (
     <BasicLayout>
-      <BooksList url="https://api.itbook.store/1.0/search/mathematics" />
+      <BooksList />
     </BasicLayout>
   );
 };

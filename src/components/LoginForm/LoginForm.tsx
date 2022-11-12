@@ -1,29 +1,45 @@
-import React from "react";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import React, { useState } from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getFirebaseMessage } from "../../helpers/fireBaseErrors";
 
 import { Styles } from "./styles";
 
-type SignUpFormValues = {
+type LoginFormValues = {
   email: string;
   password: string;
 };
 
 export const LoginForm = () => {
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<SignUpFormValues>();
+  } = useForm<LoginFormValues>();
 
-  const onSubmit: SubmitHandler<SignUpFormValues> = (data) => {
-    const newUser = {
-      ...data,
-      id: Date.now(),
-    };
-
+  const onSubmit: SubmitHandler<LoginFormValues> = ({ email, password }) => {
+    setIsLoading(true);
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // const user = userCredential.user;
+        console.log(userCredential);
+        navigate("/");
+      })
+      .catch((err) => {
+        setErrorMessage(getFirebaseMessage(err.code));
+        console.log(err.code);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
     reset();
   };
 
@@ -61,7 +77,11 @@ export const LoginForm = () => {
               required: "Password is required",
               minLength: {
                 value: 6,
-                message: "Password must be at least 8 characters",
+                message: "Password must be at least 6 characters",
+              },
+              maxLength: {
+                value: 18,
+                message: "Password must be no longer than 18 characters",
               },
             })}
           />
@@ -69,8 +89,14 @@ export const LoginForm = () => {
         {errors.password && (
           <span className="text-danger">{errors.password.message}</span>
         )}
+        {errorMessage && <span className="text-danger">{errorMessage}</span>}
         <Button type="submit" variant="primary">
           Sign In
+          {isLoading && (
+            <div className="spinner-border text-white">
+              <span className="visually-hidden">Loading...</span>{" "}
+            </div>
+          )}
         </Button>
         <p className="text-center">
           Not a member? <Link to="/registration">Register</Link>

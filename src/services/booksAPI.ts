@@ -1,8 +1,10 @@
 import axios from "axios";
-import { IBooks } from "../types/types";
+import { IBookDetails, IBookResponse, IBookResponseBySearch, SearchValue } from "../types/types";
 
 enum Endpoint {
   NEW = "new",
+  SEARCH = "search/",
+  BOOK = "books/",
 }
 
 class BooksAPI {
@@ -13,7 +15,21 @@ class BooksAPI {
   });
 
   public async getNew() {
-    const { data } = await this.API.get<IBooks[]>(Endpoint.NEW);
+    const { data } = await this.API.get<IBookResponse>(Endpoint.NEW);
+
+    return data;
+  }
+
+  public async getDetailsByIsbn13(isbn13: string) {
+    const { data } = await this.API.get<IBookDetails>(`${Endpoint.BOOK}${isbn13}`);
+
+    return data;
+  }
+
+  public async getSearch({ query, page }: SearchValue) {
+    const { data } = await this.API.get<IBookResponseBySearch>(
+      `${Endpoint.SEARCH}${query}/${page}`,
+    );
 
     return data;
   }

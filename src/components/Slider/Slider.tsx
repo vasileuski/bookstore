@@ -2,9 +2,9 @@ import React from "react";
 import { Carousel } from "react-bootstrap";
 
 import { Styles } from "./styles";
-import books_1 from "../../images/books_1.jpg";
-import books_2 from "../../images/books_2.jpg";
-import books_3 from "../../images/books_3.jpg";
+import books_1 from "../../assets/images/books_1.jpg";
+import books_2 from "../../assets/images/books_2.jpg";
+import books_3 from "../../assets/images/books_3.jpg";
 
 export const Slider = () => {
   return (

@@ -8,21 +8,20 @@ import { Book } from "../pages/Book/Book";
 import React from "react";
 import { Login } from "../pages/Login/Login";
 import { Registration } from "../pages/Registration/Registration";
+import { PageNotFound } from "../pages/PageNotFound/PageNotFound";
 
 export const RouterRoot = () => {
   return (
     <Routes>
       <Route path="/" element={<Main></Main>} />
       <Route path="/newreleases" element={<NewReleases></NewReleases>} />
-      <Route
-        path="/programming"
-        element={<ProgrammingBooks></ProgrammingBooks>}
-      />
+      <Route path="/programming" element={<ProgrammingBooks></ProgrammingBooks>} />
       <Route path="/cookingbooks" element={<CookingBooks></CookingBooks>} />
       <Route path="/mathbooks" element={<MathBooks />} />
       <Route path="/login" element={<Login />} />
       <Route path="/registration" element={<Registration />} />
-      <Route path="/selectedbook/:id" element={<Book />} />
+      <Route path="/selectedbook/:isbn13" element={<Book />} />
+      <Route path="/pagenotfound" element={<PageNotFound />} />
     </Routes>
   );
 };

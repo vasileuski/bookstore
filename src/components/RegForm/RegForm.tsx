@@ -1,44 +1,45 @@
-import React from "react";
-import { ButtonGroup, Button, InputGroup, Form } from "react-bootstrap";
+import React, { useState } from "react";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { ButtonGroup, Button } from "react-bootstrap";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Styles } from "../RegForm/styles";
-const url = "https://studapi.teachmeskills.by/auth/users/";
+import { getFirebaseMessage } from "../../helpers/fireBaseErrors";
 
-type SignUpFormValues = {
+type RegFormValues = {
   email: string;
   password: string;
 };
 
 export const RegForm = () => {
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<SignUpFormValues>();
+  } = useForm<RegFormValues>();
 
-  const onSubmit: SubmitHandler<SignUpFormValues> = ({ email, password }) => {
-    // fetch(url, {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     username: email,
-    //     email,
-    //     password,
-    //   }),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data));
-    const user = {
-      email,
-      password,
-    };
-    console.log(user);
-
+  const onSubmit: SubmitHandler<RegFormValues> = ({ email, password }) => {
+    setIsLoading(true);
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // const user = userCredential.user;
+        console.log(userCredential);
+        navigate("/");
+      })
+      .catch((err) => {
+        setErrorMessage(getFirebaseMessage(err.code));
+        console.log(err.code);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
     reset();
   };
 
@@ -65,9 +66,7 @@ export const RegForm = () => {
             {...register("email", { required: "Email is required" })}
           />
         </label>
-        {errors.email && (
-          <span className="text-danger">{errors.email.message}</span>
-        )}
+        {errors.email && <span className="text-danger">{errors.email.message}</span>}
         <label>
           Password:
           <input
@@ -76,15 +75,18 @@ export const RegForm = () => {
             {...register("password", {
               required: "Password is required",
               minLength: {
-                value: 3,
-                message: "Password must be at least 3 characters",
+                value: 6,
+                message: "Password must be at least 6 characters",
+              },
+              maxLength: {
+                value: 18,
+                message: "Password must be no longer than 18 characters",
               },
             })}
           />
         </label>
-        {errors.password && (
-          <span className="text-danger">{errors.password.message}</span>
-        )}
+        {errors.password && <span className="text-danger">{errors.password.message}</span>}
+        {errorMessage && <span className="text-danger">{errorMessage}</span>}
         {/* <label>
           Repeat password:
           <input
@@ -103,7 +105,12 @@ export const RegForm = () => {
           <span className="text-danger">{errors.password.message}</span>
         )} */}
         <Button type="submit" variant="primary">
-          Sign In
+          Sign Up
+          {isLoading && (
+            <div className="spinner-border text-white">
+              <span className="visually-hidden">Loading...</span>{" "}
+            </div>
+          )}
         </Button>
         <p className="text-center">
           Have an account? <Link to="/login">Login</Link>
