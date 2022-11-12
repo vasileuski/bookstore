@@ -1,5 +1,5 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
@@ -30,12 +30,10 @@ export const LoginForm = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // const user = userCredential.user;
-        console.log(userCredential);
         navigate("/");
       })
       .catch((err) => {
         setErrorMessage(getFirebaseMessage(err.code));
-        console.log(err.code);
       })
       .finally(() => {
         setIsLoading(false);
@@ -65,9 +63,7 @@ export const LoginForm = () => {
             {...register("email", { required: "Email is required" })}
           />
         </label>
-        {errors.email && (
-          <span className="text-danger">{errors.email.message}</span>
-        )}
+        {errors.email && <span className="text-danger">{errors.email.message}</span>}
         <label>
           Password:
           <input
@@ -86,9 +82,7 @@ export const LoginForm = () => {
             })}
           />
         </label>
-        {errors.password && (
-          <span className="text-danger">{errors.password.message}</span>
-        )}
+        {errors.password && <span className="text-danger">{errors.password.message}</span>}
         {errorMessage && <span className="text-danger">{errorMessage}</span>}
         <Button type="submit" variant="primary">
           Sign In

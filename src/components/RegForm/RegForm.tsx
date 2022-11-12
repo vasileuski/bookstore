@@ -30,12 +30,10 @@ export const RegForm = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // const user = userCredential.user;
-        console.log(userCredential);
         navigate("/");
       })
       .catch((err) => {
         setErrorMessage(getFirebaseMessage(err.code));
-        console.log(err.code);
       })
       .finally(() => {
         setIsLoading(false);

@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Button, Container, Spinner } from "react-bootstrap";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft } from "react-bootstrap-icons";
 
 import { Styles } from "./styles";
-import { IBook } from "../../types/types";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import { fetchBookByDetails } from "../../store/features/bookDetailsSlice";
 import { getDetailsByIsbn13 } from "../../store/selectors/bookDetails";
@@ -14,8 +13,6 @@ export const SelectedBook = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { isLoading, error, bookDetails } = useAppSelector(getDetailsByIsbn13);
-
-  const book: IBook = bookDetails;
 
   useEffect(() => {
     dispatch(fetchBookByDetails(params.isbn13!));
