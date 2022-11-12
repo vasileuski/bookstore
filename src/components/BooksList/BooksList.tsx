@@ -5,8 +5,8 @@ import { useInput } from "../../hooks/useInput";
 import { IBook } from "../../types/types";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import { fetchBooks } from "../../store/features/booksSlice";
-import { getBooks } from "../../store/selectors/bookSelectors";
 
+import { getBooks } from "../../store/selectors/bookSelectors";
 import { Styles } from "./styles";
 import { BookCard } from "../BookCard/BookCard";
 import { Search } from "../Search/Search";
@@ -14,7 +14,6 @@ import { Search } from "../Search/Search";
 export const BooksList = () => {
   const dispatch = useAppDispatch();
   const { isLoading, error, books } = useAppSelector(getBooks);
-  const navigate = useNavigate();
   const inputText = useInput();
 
   useEffect(() => {
