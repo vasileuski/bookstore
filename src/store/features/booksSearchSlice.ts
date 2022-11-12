@@ -64,7 +64,7 @@ interface SearchBooksState {
   booksBySearch: IBook[];
   isLoading: boolean;
   error: null | string;
-  debounceSearchValue: string;
+  debouncedValue: string;
   total: string;
 }
 
@@ -72,17 +72,17 @@ const initialState: SearchBooksState = {
   booksBySearch: [],
   isLoading: false,
   error: null,
-  debounceSearchValue: "",
+  debouncedValue: "",
   total: "",
 };
 
-const fetchBooksBySearch = createAsyncThunk<
+const fetchBooksSearch = createAsyncThunk<
   IBookResponseBySearch,
-  { query: string; page: number },
+  { value: string },
   { rejectValue: string }
->("search/fetchBooksBySearch", async ({ query, page }, { rejectWithValue }) => {
+>("search/fetchBooksSearch", async ({ value }, { rejectWithValue }) => {
   try {
-    return await booksAPI.getSearch({ query, page });
+    return await booksAPI.getSearch({ value });
   } catch (error) {
     const axiosError = error as AxiosError;
     return rejectWithValue(axiosError.message);
@@ -93,27 +93,27 @@ const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
-    getDebounceSearchValue(state, { payload }: PayloadAction<string>) {
-      state.debounceSearchValue = payload;
+    getDebounceValue(state, { payload }: PayloadAction<string>) {
+      state.debouncedValue = payload;
     },
 
-    resetDebounceSearchValue(state) {
-      state.debounceSearchValue = "";
+    resetDebounceValue(state) {
+      state.debouncedValue = "";
     },
   },
   extraReducers(builder) {
-    builder.addCase(fetchBooksBySearch.pending, (state) => {
+    builder.addCase(fetchBooksSearch.pending, (state) => {
       state.isLoading = true;
       state.error = null;
     });
-    builder.addCase(fetchBooksBySearch.fulfilled, (state, { payload }) => {
+    builder.addCase(fetchBooksSearch.fulfilled, (state, { payload }) => {
       state.isLoading = false;
       if (payload.books) {
         state.booksBySearch = payload.books;
         state.total = payload.total;
       }
     });
-    builder.addCase(fetchBooksBySearch.rejected, (state, { payload }) => {
+    builder.addCase(fetchBooksSearch.rejected, (state, { payload }) => {
       if (payload) {
         state.isLoading = false;
         state.error = payload;
@@ -124,6 +124,6 @@ const searchSlice = createSlice({
 
 export default searchSlice.reducer;
 
-export { fetchBooksBySearch };
+export { fetchBooksSearch };
 
-export const { getDebounceSearchValue, resetDebounceSearchValue } = searchSlice.actions;
+export const { getDebounceValue, resetDebounceValue } = searchSlice.actions;

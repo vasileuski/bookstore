@@ -20,8 +20,7 @@ export interface IBookResponseBySearch {
 }
 
 export interface SearchValue {
-  query: string;
-  page: number;
+  value: string;
 }
 
 export interface IBookDetails {

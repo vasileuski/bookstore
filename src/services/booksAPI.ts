@@ -26,10 +26,8 @@ class BooksAPI {
     return data;
   }
 
-  public async getSearch({ query, page }: SearchValue) {
-    const { data } = await this.API.get<IBookResponseBySearch>(
-      `${Endpoint.SEARCH}${query}/${page}`,
-    );
+  public async getSearch({ value }: SearchValue) {
+    const { data } = await this.API.get<IBookResponseBySearch>(`${Endpoint.SEARCH}${value}`);
 
     return data;
   }
