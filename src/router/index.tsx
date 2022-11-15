@@ -9,6 +9,7 @@ import React from "react";
 import { Login } from "../pages/Login/Login";
 import { Registration } from "../pages/Registration/Registration";
 import { PageNotFound } from "../pages/PageNotFound/PageNotFound";
+import { CartPage } from "../pages/CartPage/CartPage";
 
 export const RouterRoot = () => {
   return (
@@ -21,6 +22,7 @@ export const RouterRoot = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/registration" element={<Registration />} />
       <Route path="/selectedbook/:isbn13" element={<Book />} />
+      <Route path="/cart" element={<CartPage />} />
       <Route path="/pagenotfound" element={<PageNotFound />} />
     </Routes>
   );
