@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { RouterRoot } from "./router";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import "./firebase";
 
 export function App() {
   return (

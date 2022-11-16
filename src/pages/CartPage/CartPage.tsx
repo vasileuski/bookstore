@@ -1,11 +1,11 @@
 import React from "react";
 import { BasicLayout } from "../../components/BasicLayout/BasicLayout";
-import { BooksList } from "../../components/BooksList/BooksList";
+import { Cart } from "../../components/Cart/Cart";
 
-export const NewReleases = () => {
+export const CartPage = () => {
   return (
     <BasicLayout>
-      <BooksList />
+      <Cart />
     </BasicLayout>
   );
 };

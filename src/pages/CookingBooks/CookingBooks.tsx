@@ -5,7 +5,7 @@ import { BooksList } from "../../components/BooksList/BooksList";
 export const CookingBooks = () => {
   return (
     <BasicLayout>
-      <BooksList url="https://api.itbook.store/1.0/search/cooking" />
+      <BooksList />
     </BasicLayout>
   );
 };

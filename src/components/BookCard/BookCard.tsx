@@ -3,10 +3,10 @@ import { Card, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 import { Styles } from "./styles";
-import { BookModel } from "../../types/types";
+import { IBook } from "../../types/types";
 
 interface Props {
-  card: BookModel;
+  card: IBook;
 }
 
 export const BookCard = ({ card }: Props) => (

@@ -8,10 +8,10 @@ interface IBasicLayout {
 
 export const BasicLayout = ({ children }: IBasicLayout) => {
   return (
-    <>
+    <div className="d-flex flex-column vh-100">
       <NaviBar />
-      <main>{children}</main>
+      <div className="container flex-grow-1">{children}</div>
       <Footer />
-    </>
+    </div>
   );
 };
