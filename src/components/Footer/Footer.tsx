@@ -13,8 +13,12 @@ export const Footer = () => {
             <Nav.Link as="li">
               <Link to="/">Main</Link>
             </Nav.Link>
-            <Nav.Link as="li">Login</Nav.Link>
-            <Nav.Link as="li">Registration</Nav.Link>
+            <Nav.Link as="li">
+              <Link to="/login">Login</Link>
+            </Nav.Link>
+            <Nav.Link as="li">
+              <Link to="/registration">Registration</Link>
+            </Nav.Link>
           </Nav>
 
           <Nav defaultActiveKey="/home" className="flex-column">

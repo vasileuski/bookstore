@@ -22,6 +22,9 @@ export const NaviBar = () => {
               <Nav.Link as="li">
                 <Link to="/">Main</Link>
               </Nav.Link>
+              <Nav.Link as="li">
+                <Link to="/cart">Cart</Link>
+              </Nav.Link>
               <NavDropdown title="Go Shopping" menuVariant="light">
                 <NavDropdown.Item as="li">
                   <Link to="/newreleases">NEW Releases</Link>

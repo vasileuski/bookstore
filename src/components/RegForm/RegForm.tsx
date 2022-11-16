@@ -45,8 +45,6 @@ export const RegForm = ({ toggleModal }: INotification) => {
       });
   };
 
-  console.log(error);
-
   return (
     <Styles>
       <form
@@ -113,7 +111,7 @@ export const RegForm = ({ toggleModal }: INotification) => {
           ></Controller>
         </label>
 
-        {errors.password && <span className="text-danger">{errors.password.message}</span>}
+        {errors && <span className="text-danger">{errors.confirm?.message}</span>}
 
         {errorMessage && <span className="text-danger">{errorMessage}</span>}
 

@@ -29,6 +29,17 @@ export const MainSearch = () => {
     );
   }
 
+  if (booksBySearch.length === 0 && debouncedValue) {
+    return (
+      <Styles>
+        <Container>
+          <Search {...inputText} />
+          <h2 className="m-3">Sorry, but there is nothing 😔</h2>
+        </Container>
+      </Styles>
+    );
+  }
+
   return (
     <Styles>
       <Container>
