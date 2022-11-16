@@ -1,6 +1,4 @@
 import React from "react";
-import { Row, Col, Card } from "react-bootstrap";
-import { BookCard } from "../BookCard/BookCard";
 import { CartBookCard } from "../CartBookCard/CartBookCard";
 
 const arr: {}[] = [
