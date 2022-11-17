@@ -11,7 +11,7 @@ export const NaviBar = () => {
       <Navbar collapseOnSelect expand="md" bg="light">
         <Container>
           <NavbarBrand>
-            <Link to="/bookstore" style={{ color: "#212529" }}>
+            <Link to="/" style={{ color: "#212529" }}>
               📚 Bookstore
             </Link>
           </NavbarBrand>
@@ -20,7 +20,7 @@ export const NaviBar = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav as="ul">
               <Nav.Link as="li">
-                <Link to="/bookstore">Main</Link>
+                <Link to="/">Main</Link>
               </Nav.Link>
               <Nav.Link as="li">
                 <Link to="/cart">Cart</Link>
