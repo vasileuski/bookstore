@@ -3,6 +3,8 @@ import userReducer from "./features/userSlice";
 import booksReducer from "./features/booksSlice";
 import booksSearchReducer from "./features/booksSearchSlice";
 import bookDetailsReducer from "./features/bookDetailsSlice";
+import cartReducer from "./features/cartSlice";
+import { Cart } from "react-bootstrap-icons";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +12,7 @@ export const store = configureStore({
     user: userReducer,
     search: booksSearchReducer,
     bookDetails: bookDetailsReducer,
+    cart: cartReducer,
   },
 });
 

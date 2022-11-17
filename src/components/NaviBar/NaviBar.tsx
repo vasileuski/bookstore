@@ -25,20 +25,9 @@ export const NaviBar = () => {
               <Nav.Link as="li">
                 <Link to="/cart">Cart</Link>
               </Nav.Link>
-              <NavDropdown title="Go Shopping" menuVariant="light">
-                <NavDropdown.Item as="li">
-                  <Link to="/newreleases">NEW Releases</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item as="li">
-                  <Link to="/programming">Programming</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item as="li">
-                  <Link to="/cookingbooks">Cooking</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item as="li">
-                  <Link to="/mathbooks">Mathematics</Link>
-                </NavDropdown.Item>
-              </NavDropdown>
+              <Nav.Link as="li">
+                <Link to="/newreleases">Go Shopping</Link>
+              </Nav.Link>
             </Nav>
             <Link to="/login" style={{ color: "white" }}>
               <Button variant="primary">

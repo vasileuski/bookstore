@@ -23,16 +23,7 @@ export const Footer = () => {
 
           <Nav defaultActiveKey="/home" className="flex-column">
             <Nav.Link as="li">
-              <Link to="/newreleases">NEW Releases</Link>
-            </Nav.Link>
-            <Nav.Link as="li">
-              <Link to="/programming">Programming</Link>
-            </Nav.Link>
-            <Nav.Link as="li">
-              <Link to="/cookingbooks">Cooking</Link>
-            </Nav.Link>
-            <Nav.Link as="li">
-              <Link to="/mathbooks">Mathematics</Link>
+              <Link to="/newreleases">Go Shopping</Link>
             </Nav.Link>
           </Nav>
 

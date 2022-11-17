@@ -11,7 +11,7 @@ import { getUserInfo } from "../../store/selectors/userSelectors";
 type RegFormValues = {
   email: string;
   password: string;
-  confirm: string;
+  confirmPassword: string;
 };
 
 interface INotification {
@@ -19,30 +19,30 @@ interface INotification {
 }
 
 export const RegForm = ({ toggleModal }: INotification) => {
-  const { isPendingAuth, error } = useAppSelector(getUserInfo);
+  const { isLoading } = useAppSelector(getUserInfo);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const {
+    register,
     handleSubmit,
-    formState: { errors },
-    control,
     watch,
-    reset,
-  } = useForm<RegFormValues>({ defaultValues: { email: "", password: "", confirm: "" } });
+    formState: { errors },
+  } = useForm<RegFormValues>();
 
-  const onSubmit: SubmitHandler<RegFormValues> = (userInfo) => {
-    dispatch(fetchSignUpUser(userInfo))
-      .then(() => {
-        toggleModal(true);
-      })
-      .catch((err) => {
-        setErrorMessage(err);
-      })
-      .finally(() => {
-        reset();
-      });
+  const onSubmit: SubmitHandler<RegFormValues> = ({ email, password }) => {
+    setErrorMessage(null);
+    if (password === confirmPassword) {
+      dispatch(fetchSignUpUser({ email, password }))
+        .then(() => navigate("/"))
+        .catch((err) => {
+          setErrorMessage(err);
+        });
+    }
   };
+
+  const { password, confirmPassword } = watch();
 
   return (
     <Styles>
@@ -60,85 +60,49 @@ export const RegForm = ({ toggleModal }: INotification) => {
 
         <label>
           Email:
-          <Controller
-            name="email"
-            control={control}
-            rules={{
-              required: "Email is required!",
-              pattern: {
-                value: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-                message: "Please enter a valid email",
-              },
-            }}
-            render={({ field: { value, onChange } }) => {
-              return (
-                <input
-                  className="form-control"
-                  placeholder="exapmle@example.com"
-                  value={value}
-                  onChange={onChange}
-                  type="email"
-                />
-              );
-            }}
-          ></Controller>
-        </label>
-
-        {errors.email && <span className="text-danger">{errors.email.message}</span>}
-
-        <label>
-          Password:
-          <Controller
-            name="password"
-            control={control}
-            rules={{
-              required: "Password is required!",
-              minLength: {
-                value: 6,
-                message: "Password must be more than 6 characters",
-              },
-              maxLength: {
-                value: 20,
-                message: "Password must be less than 20 characters",
-              },
-            }}
-            render={({ field: { value, onChange } }) => {
-              return (
-                <input className="form-control" value={value} onChange={onChange} type="password" />
-              );
-            }}
-          ></Controller>
-        </label>
-
-        {errors && <span className="text-danger">{errors.confirm?.message}</span>}
-
-        {errorMessage && <span className="text-danger">{errorMessage}</span>}
-
-        <label>
-          Confirm password
-          <Controller
-            control={control}
-            name="confirm"
-            rules={{
-              required: "Confirm  your password",
-              validate: (value: string) => {
-                if (watch("password") !== value) {
-                  return "Your passwords do no match";
-                }
-              },
-            }}
-            render={({ field: { onChange, value } }) => (
-              <input className="form-control" value={value} onChange={onChange} type="password" />
-            )}
+          <input
+            className="form-control"
+            placeholder="exapmle@example.com"
+            {...register("email", { required: "Email is required" })}
           />
         </label>
 
+        <span className="text-danger">{errors.email?.message}</span>
+
+        <label>
+          Password:
+          <input
+            type="password"
+            className="form-control"
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must contain at least 6 characters",
+              },
+            })}
+          />
+        </label>
+
+        <span className="text-danger">{errors.password?.message}</span>
+
+        <label>
+          Confirm password
+          <input type="password" className="form-control" {...register("confirmPassword")} />
+          {confirmPassword === password ? (
+            <></>
+          ) : (
+            <span className="text-danger">Password don't match</span>
+          )}
+        </label>
+
         <Button type="submit" variant="primary">
-          Sign Up
-          {isPendingAuth && (
+          {isLoading ? (
             <div className="spinner-border text-white">
               <span className="visually-hidden">Loading...</span>{" "}
             </div>
+          ) : (
+            "Sign Up"
           )}
         </Button>
         <p className="text-center">
