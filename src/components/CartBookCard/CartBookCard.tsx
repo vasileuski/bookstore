@@ -15,10 +15,10 @@ export const CartBookCard = ({ card }: Props) => {
       <Card className="cart">
         <div className="cart__card">
           <Card.Img variant="top" src={card.image} className="cart__card-img" />
-          <Card.Text className="cart__card-title">
-            {card.title}
-            <Card.Text className="cart__card-price">{card.price}</Card.Text>
-            <Card.Text className="cart__card-subtitle">{card.subtitle}</Card.Text>
+          <Card.Text as="div" className="cart__card-title">
+            <p>{card.title}</p>
+            <p className="cart__card-price">{card.price}</p>
+            <p className="cart__card-subtitle">{card.subtitle}</p>
           </Card.Text>
           <Button variant="danger" className="cart__card-button">
             <XLg></XLg>

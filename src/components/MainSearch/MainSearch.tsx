@@ -21,34 +21,33 @@ export const MainSearch = () => {
     dispatch(fetchBooksSearch({ value: debouncedValue }));
   }, [debouncedValue, dispatch]);
 
-  if (isLoading) {
-    return (
-      <div className="spinner-cover d-flex" style={{ height: "100vh" }}>
-        <Spinner className="d-flex m-auto align-items-center" animation="grow" variant="primary" />
-      </div>
-    );
-  }
-
-  if (booksBySearch.length === 0 && debouncedValue) {
-    return (
-      <Styles>
-        <Container>
-          <Search {...inputText} />
-          <h2 className="m-3">Sorry, but there is nothing 😔</h2>
-        </Container>
-      </Styles>
-    );
-  }
-
   return (
     <Styles>
       <Container>
         <Search {...inputText} />
-        <ul className="card-list">
-          {booksBySearch.map((item: IBook) => (
-            <BookCard card={item} key={item.isbn13} />
-          ))}
-        </ul>
+        {isLoading && (
+          <div className="spinner-cover d-flex" style={{ height: "100vh" }}>
+            <Spinner
+              className="d-flex m-auto align-items-center"
+              animation="grow"
+              variant="primary"
+            />
+          </div>
+        )}
+        {booksBySearch.length === 0 && debouncedValue && (
+          <Styles>
+            <Container>
+              <h2 className="m-3">Sorry, but there is nothing 😔</h2>
+            </Container>
+          </Styles>
+        )}
+        {booksBySearch && (
+          <ul className="card-list">
+            {booksBySearch.map((item: IBook) => (
+              <BookCard card={item} key={item.isbn13} />
+            ))}
+          </ul>
+        )}
       </Container>
     </Styles>
   );
