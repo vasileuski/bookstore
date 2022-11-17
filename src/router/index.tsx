@@ -15,7 +15,7 @@ import { RequireAuth } from "../components/RequireAuth/RequireAuth";
 export const RouterRoot = () => {
   return (
     <Routes>
-      <Route path="/" element={<Main></Main>} />
+      <Route path="/bookstore" element={<Main></Main>} />
       <Route path="/newreleases" element={<NewReleases></NewReleases>} />
       <Route path="/programming" element={<ProgrammingBooks></ProgrammingBooks>} />
       <Route path="/cookingbooks" element={<CookingBooks></CookingBooks>} />
