@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ButtonGroup, Button } from "react-bootstrap";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Styles } from "../RegForm/styles";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
