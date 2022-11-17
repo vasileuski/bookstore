@@ -11,7 +11,7 @@ export const Footer = () => {
         <Container>
           <Nav className="flex-column">
             <Nav.Link as="li">
-              <Link to="/">Main</Link>
+              <Link to="/bookstore">Main</Link>
             </Nav.Link>
             <Nav.Link as="li">
               <Link to="/login">Login</Link>
